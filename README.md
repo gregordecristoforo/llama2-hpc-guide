@@ -45,5 +45,19 @@ There are multiple ways to install python packages on SAGA. I choose `virtualenv
 * Create the virtual environment: `python -m venv llama2`
 * Activate the environment: `source llama2/bin/activate`
 * Install dependencies of the project. I advise putting all dependencies into a `requirements.txt` file. That way we make sure that the build stays reproducable. The used `requirements.txt` file is in this repository. To install the dependencies run: `pip install -r requirements.txt`
+* Modify python script to make use of GPU. For this we need to move `model` and the `input_ids` to the GPU and the `output` back to the CPU:
+    ```python
+    # Move the model to GPU
+    model = model.to('cuda')
 
+    # Move the input tensors to GPU
+    input_ids = input_ids.to('cuda')
+
+    # Move the generated tensor back to CPU for decoding
+    output = output.to('cpu')
+    ```
+    Take whole script is available as `llama2.py` in this repository
+* Set up job script. The job script generator was very useful: https://open.pages.sigma2.no/job-script-generator/
+  However, we need to set `#SBATCH --partition=a100` since the GPUs from the `accel` have to little memory. Also, make sure to use enough RAM since llama2 uses around 25GB. The batch script I used, `llama2.sh`, is in this repository.
+* Submit the job to run llama2: `sbatch llama2.sh`
 
