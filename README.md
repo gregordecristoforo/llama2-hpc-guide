@@ -38,7 +38,7 @@
     print(generated_text)
     ```
 
-    ## Use llama2 on SAGA
+## Use llama2 on SAGA
 There are multiple ways to install python packages on SAGA. I choose `virtualenv` following this part of the documentation: https://documentation.sigma2.no/software/userinstallsw/python.html
 * Run the following command since we will run our model on A100 GPUS: `module --force swap StdEnv Zen2Env`
 * Load a compatible python version: `module load Python/3.10.8-GCCcore-12.2.0`
