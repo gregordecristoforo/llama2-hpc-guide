@@ -37,3 +37,13 @@
     generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
     print(generated_text)
     ```
+
+    ## Use llama2 on SAGA
+There are multiple ways to install python packages on SAGA. I choose `virtualenv` following this part of the documentation: https://documentation.sigma2.no/software/userinstallsw/python.html
+* Run the following command since we will run our model on A100 GPUS: `module --force swap StdEnv Zen2Env`
+* Load a compatible python version: `module load Python/3.10.8-GCCcore-12.2.0`
+* Create the virtual environment: `python -m venv llama2`
+* Activate the environment: `source llama2/bin/activate`
+* Install dependencies of the project. I advise putting all dependencies into a `requirements.txt` file. That way we make sure that the build stays reproducable. The used `requirements.txt` file is in this repository. To install the dependencies run: `pip install -r requirements.txt`
+
+
