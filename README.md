@@ -1,8 +1,11 @@
 # Finetune llama-2 model on SAGA and Lumi
 
+## Get access to llama2
 * create Hugging Face account: https://huggingface.co/
 * Request access to Llama on https://llama.meta.com/llama-downloads/ 
 * Create Access token in personal settings on Hugging Face
+
+## Use llama2 on local machine with conda
 * set up pip empty conda environment with:
     `conda create --name llama2 python`
 * install required packages: 
