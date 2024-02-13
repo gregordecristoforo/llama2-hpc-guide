@@ -23,4 +23,17 @@
     model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-2-7b-chat-hf", token=hf_token, cache_dir=custom_directory)
     ```
     setting a custom directory where the model is stored is not necessary, I however prefer having an explicit path when working on HPC devices
+* run llama2 with selected tokenizer and model:
+    ```python
+    # Encode some text to test the model (replace 'Your text here' with your input)
+    input_text = "What is the capital of China?"
+    input_ids = tokenizer.encode(input_text, return_tensors='pt')
 
+    # Generate text using the model
+    with torch.no_grad():
+        output = model.generate(input_ids, max_length=50)
+
+    # Decode the generated text
+    generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
+    print(generated_text)
+    ```
