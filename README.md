@@ -61,3 +61,6 @@ There are multiple ways to install python packages on SAGA. I choose `virtualenv
   However, we need to set `#SBATCH --partition=a100` since the GPUs from the `accel` have to little memory. Also, make sure to use enough RAM since llama2 uses around 25GB. The batch script I used, `llama2.sh`, is in this repository.
 * Submit the job to run llama2: `sbatch llama2.sh`
 
+## Use llama2 on LUMI
+Again, there are multiple ways to install python packages on Lumi. I chose Lumi container wrappers to wrap a plain pip installation as described here in detail: https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/
+
