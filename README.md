@@ -63,4 +63,11 @@ There are multiple ways to install python packages on SAGA. I choose `virtualenv
 
 ## Use llama2 on LUMI
 Again, there are multiple ways to install python packages on Lumi. I chose Lumi container wrappers to wrap a plain pip installation as described here in detail: https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/
+* First, load the required modules on Lumi: `module load LUMI` and `module load lumi-container-wrapper`
+* Create the container in the folder of your choice (in my case in the project directory): `pip-containerize new --prefix /project/project_465000961/decristo/llama2/pip-container/ --slim requirements.txt`
+* Add the created bin directory to your path, in my case: `export PATH="./pip-container/bin:$PATH"`
+
+If we now enter a python shell, `torch` and `transformers` can be imported.
+
+
 
